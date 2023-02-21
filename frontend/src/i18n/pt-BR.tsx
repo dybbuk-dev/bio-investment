@@ -1,4 +1,4 @@
-const es = {
+const ptBR = {
   common: {
     areYouSure: 'Are you sure?',
     back: 'Back',
@@ -688,4 +688,4 @@ const es = {
   },
 };
 
-export default es;
+export default ptBR;
