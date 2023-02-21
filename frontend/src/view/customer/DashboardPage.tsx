@@ -121,7 +121,7 @@ function DashboardPage(props) {
                   color="red"
                   variant="subtitle2"
                 >
-                  {i18n('dashboard.property')}
+                  {i18n('dashboard.token')}
                 </MDTypography>
                 <MDBox
                   display="flex"

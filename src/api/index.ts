@@ -79,7 +79,7 @@ require('./auditLog').default(routes);
 require('./auth').default(routes);
 require('./file').default(routes);
 require('./user').default(routes);
-require('./property').default(routes);
+require('./token').default(routes);
 require('./dashboard').default(routes);
 
 // Add the routes to the /api endpoint

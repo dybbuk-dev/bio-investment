@@ -39,14 +39,23 @@ function ImagesViewItem(props) {
       >
         {props.label}
       </MDTypography>
-      <ImagesUploader readonly value={valueAsArray()} />
+      <ImagesUploader
+        max={props.max}
+        readonly
+        value={valueAsArray()}
+      />
     </MDBox>
   );
 }
 
+ImagesViewItem.defaultProps = {
+  max: 1,
+};
+
 ImagesViewItem.propTypes = {
   label: PropTypes.string,
   value: PropTypes.any,
+  max: PropTypes.number,
 };
 
 export default ImagesViewItem;

@@ -22,10 +22,10 @@ const adminMenu = [
   },
 
   {
-    path: '/admin/property',
+    path: '/admin/token',
     icon: <Icon>apartment</Icon>,
-    name: i18n('property.menu'),
-    permissionRequired: permissions.propertyRead,
+    name: i18n('token.menu'),
+    permissionRequired: permissions.tokenRead,
   },
 
   {
@@ -71,7 +71,7 @@ const customerMenu = [
     exact: true,
     icon: <Icon>location_city</Icon>,
     name: i18n('customer.investment.menu'),
-    permissionRequired: permissions.propertyRead,
+    permissionRequired: permissions.tokenRead,
   },
 
   {
@@ -83,11 +83,11 @@ const customerMenu = [
   },
 
   {
-    path: '/customer/property',
+    path: '/customer/token',
     exact: true,
     icon: <Icon>apartment</Icon>,
-    name: i18n('customer.property.menu'),
-    permissionRequired: permissions.propertyRead,
+    name: i18n('customer.token.menu'),
+    permissionRequired: permissions.tokenRead,
   },
 
   {

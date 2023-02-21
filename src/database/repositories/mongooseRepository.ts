@@ -94,19 +94,19 @@ export default class MongooseRepository {
   static async refreshTwoWayRelationManyToOne(
     record,
     sourceModel,
-    sourceProperty,
+    sourceToken,
     targetModel,
-    targetProperty,
+    targetToken,
     options: IRepositoryOptions,
   ) {
     await sourceModel.updateMany(
       {
         _id: { $nin: record._id },
-        [sourceProperty]: { $in: record[sourceProperty] },
+        [sourceToken]: { $in: record[sourceToken] },
       },
       {
         $pullAll: {
-          [sourceProperty]: record[sourceProperty],
+          [sourceToken]: record[sourceToken],
         },
       },
       options,
@@ -114,18 +114,18 @@ export default class MongooseRepository {
 
     await targetModel.updateMany(
       {
-        _id: { $in: record[sourceProperty] },
+        _id: { $in: record[sourceToken] },
       },
-      { [targetProperty]: record._id },
+      { [targetToken]: record._id },
       options,
     );
 
     await targetModel.updateMany(
       {
-        _id: { $nin: record[sourceProperty] },
-        [targetProperty]: record._id,
+        _id: { $nin: record[sourceToken] },
+        [targetToken]: record._id,
       },
-      { [targetProperty]: null },
+      { [targetToken]: null },
       options,
     );
   }
@@ -137,23 +137,23 @@ export default class MongooseRepository {
    */
   static async refreshTwoWayRelationOneToMany(
     record,
-    sourceProperty,
+    sourceToken,
     targetModel,
-    targetProperty,
+    targetToken,
     options: IRepositoryOptions,
   ) {
     await targetModel.updateOne(
-      { _id: record[sourceProperty] },
-      { $addToSet: { [targetProperty]: record._id } },
+      { _id: record[sourceToken] },
+      { $addToSet: { [targetToken]: record._id } },
       options,
     );
 
     await targetModel.updateMany(
       {
-        _id: { $ne: record[sourceProperty] },
-        [targetProperty]: record._id,
+        _id: { $ne: record[sourceToken] },
+        [targetToken]: record._id,
       },
-      { $pull: { [targetProperty]: record._id } },
+      { $pull: { [targetToken]: record._id } },
       options,
     );
   }
@@ -165,23 +165,23 @@ export default class MongooseRepository {
    */
   static async refreshTwoWayRelationManyToMany(
     record,
-    sourceProperty,
+    sourceToken,
     targetModel,
-    targetProperty,
+    targetToken,
     options: IRepositoryOptions,
   ) {
     await targetModel.updateMany(
-      { _id: { $in: record[sourceProperty] } },
-      { $addToSet: { [targetProperty]: record._id } },
+      { _id: { $in: record[sourceToken] } },
+      { $addToSet: { [targetToken]: record._id } },
       options,
     );
 
     await targetModel.updateMany(
       {
-        _id: { $nin: record[sourceProperty] },
-        [targetProperty]: { $in: record._id },
+        _id: { $nin: record[sourceToken] },
+        [targetToken]: { $in: record._id },
       },
-      { $pull: { [targetProperty]: record._id } },
+      { $pull: { [targetToken]: record._id } },
       options,
     );
   }
@@ -194,12 +194,12 @@ export default class MongooseRepository {
   static async destroyRelationToMany(
     recordId,
     targetModel,
-    targetProperty,
+    targetToken,
     options: IRepositoryOptions,
   ) {
     await targetModel.updateMany(
-      { [targetProperty]: recordId },
-      { $pull: { [targetProperty]: recordId } },
+      { [targetToken]: recordId },
+      { $pull: { [targetToken]: recordId } },
       options,
     );
   }
@@ -212,12 +212,12 @@ export default class MongooseRepository {
   static async destroyRelationToOne(
     recordId,
     targetModel,
-    targetProperty,
+    targetToken,
     options: IRepositoryOptions,
   ) {
     await targetModel.updateMany(
-      { [targetProperty]: recordId },
-      { [targetProperty]: null },
+      { [targetToken]: recordId },
+      { [targetToken]: null },
       options,
     );
   }

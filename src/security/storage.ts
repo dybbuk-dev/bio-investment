@@ -24,9 +24,9 @@ export default class Storage {
         bypassWritingPermissions: true,
         publicRead: true,
       },
-      propertyPhotographs: {
-        id: 'propertyPhotographs',
-        folder: 'property/photographs',
+      tokenImage: {
+        id: 'tokenImage',
+        folder: 'token/images',
         maxSizeInBytes: 10 * 1024 * 1024,
         publicRead: true,
       },

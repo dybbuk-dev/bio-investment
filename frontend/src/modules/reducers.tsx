@@ -4,7 +4,7 @@ import auth from 'src/modules/auth/authReducers';
 import admin from 'src/modules/admin/adminReducers';
 import customer from 'src/modules/customer/customerReducers';
 import auditLog from 'src/modules/auditLog/auditLogReducers';
-import property from 'src/modules/property/propertyReducers';
+import token from 'src/modules/token/tokenReducers';
 import dashboard from 'src/modules/dashboard/dashboardReducers';
 import { combineReducers } from 'redux';
 import form from 'src/modules/form/formReducers';
@@ -20,6 +20,6 @@ export default (history) =>
     admin,
     customer,
     auditLog,
-    property,
+    token,
     dashboard,
   });
