@@ -28,6 +28,13 @@ const languages: {
     dateFns: null,
     dictionary: null,
   },
+  'pt-BR': {
+    id: 'pt-BR',
+    label: 'Português',
+    flag: '/images/flags/Brazil.png',
+    dateFns: null,
+    dictionary: null,
+  },
 };
 
 export async function init() {
@@ -43,6 +50,10 @@ export async function init() {
 
   if (currentLanguageCode === 'en') {
     await initEn();
+  }
+
+  if (currentLanguageCode === 'pt-BR') {
+    await initPtBr();
   }
 
   if (currentLanguageCode === 'es') {
@@ -66,6 +77,30 @@ async function initEs() {
   ).default;
 
   moment.locale('es', momentLocale);
+
+  if (language.dictionary.validation) {
+    setYupLocale(language.dictionary.validation);
+  }
+
+  return language;
+}
+
+async function initPtBr() {
+  const language = languages['pt-BR'];
+
+  // @ts-ignore
+  const momentLocale = (await import('moment/locale/pt-br'))
+    .default;
+
+  language.dateFns = (
+    await import('date-fns/locale/pt-BR')
+  ).default;
+
+  language.dictionary = (
+    await import('src/i18n/pt-BR')
+  ).default;
+
+  moment.locale('pt-BR', momentLocale);
 
   if (language.dictionary.validation) {
     setYupLocale(language.dictionary.validation);
