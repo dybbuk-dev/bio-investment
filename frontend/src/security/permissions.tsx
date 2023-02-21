@@ -69,35 +69,35 @@ class Permissions {
         allowedRoles: [roles.admin, roles.manager],
       },
 
-      propertyImport: {
-        id: 'propertyImport',
+      tokenImport: {
+        id: 'tokenImport',
         allowedRoles: [roles.admin, roles.manager],
       },
-      propertyCreate: {
-        id: 'propertyCreate',
+      tokenCreate: {
+        id: 'tokenCreate',
         allowedRoles: [roles.admin, roles.manager],
-        allowedStorage: [storage.propertyPhotographs],
+        allowedStorage: [storage.tokenPhotographs],
       },
-      propertyEdit: {
-        id: 'propertyEdit',
+      tokenEdit: {
+        id: 'tokenEdit',
         allowedRoles: [roles.admin, roles.manager],
-        allowedStorage: [storage.propertyPhotographs],
+        allowedStorage: [storage.tokenPhotographs],
       },
-      propertyDestroy: {
-        id: 'propertyDestroy',
+      tokenDestroy: {
+        id: 'tokenDestroy',
         allowedRoles: [roles.admin, roles.manager],
-        allowedStorage: [storage.propertyPhotographs],
+        allowedStorage: [storage.tokenPhotographs],
       },
-      propertyRead: {
-        id: 'propertyRead',
+      tokenRead: {
+        id: 'tokenRead',
         allowedRoles: [
           roles.admin,
           roles.manager,
           roles.customer,
         ],
       },
-      propertyAutocomplete: {
-        id: 'propertyAutocomplete',
+      tokenAutocomplete: {
+        id: 'tokenAutocomplete',
         allowedRoles: [
           roles.admin,
           roles.manager,

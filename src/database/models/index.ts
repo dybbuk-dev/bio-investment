@@ -1,7 +1,7 @@
 const models = [
   require('./mui').default,
   require('./auditLog').default,
-  require('./property').default,
+  require('./token').default,
   require('./file').default,
   require('./user').default,
 ];

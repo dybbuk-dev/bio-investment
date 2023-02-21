@@ -287,8 +287,8 @@ const en = {
         state: 'State',
       },
     },
-    property: {
-      menu: 'Properties',
+    token: {
+      menu: 'Tokens',
     },
     marketplace: {
       menu: 'Marketplace',
@@ -318,56 +318,56 @@ const en = {
     },
   },
 
-  property: {
+  token: {
     validations: {
       // eslint-disable-next-line
       email: 'Email ${value} is invalid',
     },
-    title: 'Properties',
+    title: 'Tokens',
     subTitle: {
       generalInfo: 'General Information',
       profileData: 'Profile Data',
       schedules: 'Schedules',
     },
-    menu: 'Properties',
-    doAddSuccess: 'Property(s) successfully saved',
-    doUpdateSuccess: 'Property successfully saved',
-    exporterFileName: 'properties_export',
-    doDestroySuccess: 'Property successfully deleted',
+    menu: 'Tokens',
+    doAddSuccess: 'Token(s) successfully saved',
+    doUpdateSuccess: 'Token successfully saved',
+    exporterFileName: 'Tokens_export',
+    doDestroySuccess: 'Token successfully deleted',
     doDestroyAllSelectedSuccess:
-      'Properties successfully deleted',
+      'Tokens successfully deleted',
     edit: {
-      title: 'Edit Property',
+      title: 'Edit Token',
     },
     new: {
-      title: 'Add Property',
-      titleModal: 'Add Property',
+      title: 'Add Token',
+      titleModal: 'Add Token',
       emailsHint:
         'Separate multiple email addresses using the comma character.',
     },
     view: {
-      title: 'View Property',
+      title: 'View Token',
       activity: 'Activity',
     },
     importer: {
-      title: 'Import Properties',
-      fileName: 'properties_import_data',
+      title: 'Import Tokens',
+      fileName: 'Tokens_import_data',
       hint: 'Files/Images columns must be the URLs of the files separated by space. Relationships must be the ID of the referenced records separated by space. Roles must be the role ids separated by space.',
     },
     errors: {
       userAlreadyExists:
-        'Property with this email already exists',
-      userNotFound: 'Property not found',
+        'Token with this email already exists',
+      userNotFound: 'Token not found',
       revokingOwnPermission: `You can't revoke your own admin permission`,
     },
     fields: {
       name: 'Name',
       createdAt: 'Created At',
       updatedAt: 'Updated At',
-      propertyNumber: 'Property ID',
+      tokenNumber: 'Token ID',
       country: 'Country',
       city: 'City',
-      propertyType: 'Property Type',
+      tokenType: 'Token Type',
       address: 'Address',
       coordinateX: 'Latitude',
       coordinateY: 'Longitude',
@@ -516,7 +516,7 @@ const en = {
     requestedCustomer: 'KYC pending to approve',
     country: 'Number of Countries',
     totalInvested: 'Total Invested',
-    property: 'Number of Properties',
+    token: 'Number of Tokens',
     dividendsReceived: 'Dividends Received',
     profit: 'Profit',
     investmentLocations: 'Investment Locations',

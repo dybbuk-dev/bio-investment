@@ -143,58 +143,50 @@ const adminRoutes = [
   },
 
   {
-    path: '/admin/property',
-    i18n: 'property.menu',
+    path: '/admin/token',
+    i18n: 'token.menu',
     parent: '/admin',
     loader: () =>
-      import(
-        'src/view/admin/property/list/PropertyListPage'
-      ),
-    permissionRequired: permissions.propertyRead,
+      import('src/view/admin/token/list/TokenListPage'),
+    permissionRequired: permissions.tokenRead,
     exact: true,
   },
   {
-    path: '/admin/property/new',
-    i18n: 'property.new.title',
-    parent: '/admin/property',
+    path: '/admin/token/new',
+    i18n: 'token.new.title',
+    parent: '/admin/token',
     loader: () =>
-      import(
-        'src/view/admin/property/form/PropertyFormPage'
-      ),
-    permissionRequired: permissions.propertyCreate,
+      import('src/view/admin/token/form/TokenFormPage'),
+    permissionRequired: permissions.tokenCreate,
     exact: true,
   },
   {
-    path: '/admin/property/importer',
-    i18n: 'property.importer.title',
-    parent: '/admin/property',
+    path: '/admin/token/importer',
+    i18n: 'token.importer.title',
+    parent: '/admin/token',
     loader: () =>
       import(
-        'src/view/admin/property/importer/PropertyImporterPage'
+        'src/view/admin/token/importer/TokenImporterPage'
       ),
-    permissionRequired: permissions.propertyImport,
+    permissionRequired: permissions.tokenImport,
     exact: true,
   },
   {
-    path: '/admin/property/:id/edit',
-    i18n: 'property.edit.title',
-    parent: '/admin/property',
+    path: '/admin/token/:id/edit',
+    i18n: 'token.edit.title',
+    parent: '/admin/token',
     loader: () =>
-      import(
-        'src/view/admin/property/form/PropertyFormPage'
-      ),
-    permissionRequired: permissions.propertyEdit,
+      import('src/view/admin/token/form/TokenFormPage'),
+    permissionRequired: permissions.tokenEdit,
     exact: true,
   },
   {
-    path: '/admin/property/:id',
-    i18n: 'property.view.title',
-    parent: '/admin/property',
+    path: '/admin/token/:id',
+    i18n: 'token.view.title',
+    parent: '/admin/token',
     loader: () =>
-      import(
-        'src/view/admin/property/view/PropertyViewPage'
-      ),
-    permissionRequired: permissions.propertyRead,
+      import('src/view/admin/token/view/TokenViewPage'),
+    permissionRequired: permissions.tokenRead,
     exact: true,
   },
 ].filter(Boolean);
@@ -258,7 +250,7 @@ const customerRoutes = [
     parent: '/customer',
     loader: () =>
       import('src/view/customer/InvestmentPage'),
-    permissionRequired: permissions.propertyRead,
+    permissionRequired: permissions.tokenRead,
     exact: true,
   },
 
@@ -275,11 +267,11 @@ const customerRoutes = [
   },
 
   {
-    path: '/customer/property',
-    i18n: 'customer.property.menu',
+    path: '/customer/token',
+    i18n: 'customer.token.menu',
     parent: '/customer',
-    loader: () => import('src/view/customer/PropertyPage'),
-    permissionRequired: permissions.propertyRead,
+    loader: () => import('src/view/customer/TokenPage'),
+    permissionRequired: permissions.tokenRead,
     exact: true,
   },
 
@@ -289,7 +281,7 @@ const customerRoutes = [
     parent: '/customer',
     loader: () =>
       import('src/view/customer/MarketplacePage'),
-    permissionRequired: permissions.propertyRead,
+    permissionRequired: permissions.tokenRead,
     exact: true,
   },
 
