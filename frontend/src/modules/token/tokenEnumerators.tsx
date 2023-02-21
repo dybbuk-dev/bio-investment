@@ -1,5 +1,5 @@
 const tokenEnumerators = {
-  tokenType: ['Apartment', 'Parking', 'Office'],
+  category: ['participation token'],
   status: ['Created', 'Financing', 'Operation', 'Sold'],
 };
 

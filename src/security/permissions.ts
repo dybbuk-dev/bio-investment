@@ -74,17 +74,17 @@ class Permissions {
       tokenCreate: {
         id: 'tokenCreate',
         allowedRoles: [roles.admin, roles.manager],
-        allowedStorage: [storage.tokenPhotographs],
+        allowedStorage: [storage.tokenImage],
       },
       tokenEdit: {
         id: 'tokenEdit',
         allowedRoles: [roles.admin, roles.manager],
-        allowedStorage: [storage.tokenPhotographs],
+        allowedStorage: [storage.tokenImage],
       },
       tokenDestroy: {
         id: 'tokenDestroy',
         allowedRoles: [roles.admin, roles.manager],
-        allowedStorage: [storage.tokenPhotographs],
+        allowedStorage: [storage.tokenImage],
       },
       tokenRead: {
         id: 'tokenRead',

@@ -149,7 +149,7 @@ class TokenRepository {
       await MongooseRepository.wrapWithSessionIfExists(
         Token(options.database)
           .findOne({ _id: id })
-          .populate('photographs'),
+          .populate('tokenImage'),
         options,
       );
 
@@ -186,44 +186,11 @@ class TokenRepository {
         });
       }
 
-      if (filter.country) {
+      if (filter.category) {
         criteriaAnd.push({
-          ['country']: {
+          ['category']: {
             $regex: MongooseQueryUtils.escapeRegExp(
-              filter.country,
-            ),
-            $options: 'i',
-          },
-        });
-      }
-
-      if (filter.city) {
-        criteriaAnd.push({
-          ['city']: {
-            $regex: MongooseQueryUtils.escapeRegExp(
-              filter.city,
-            ),
-            $options: 'i',
-          },
-        });
-      }
-
-      if (filter.tokenType) {
-        criteriaAnd.push({
-          ['tokenType']: {
-            $regex: MongooseQueryUtils.escapeRegExp(
-              filter.tokenType,
-            ),
-            $options: 'i',
-          },
-        });
-      }
-
-      if (filter.tokenName) {
-        criteriaAnd.push({
-          ['tokenName']: {
-            $regex: MongooseQueryUtils.escapeRegExp(
-              filter.tokenName,
+              filter.category,
             ),
             $options: 'i',
           },
@@ -239,37 +206,6 @@ class TokenRepository {
             $options: 'i',
           },
         });
-      }
-
-      if (filter.initialRentDate) {
-        if (
-          filter.initialRentDate !== undefined &&
-          filter.initialRentDate !== null &&
-          filter.initialRentDate !== ''
-        ) {
-          const start = moment(filter.initialRentDate).set({
-            hour: 0,
-            minute: 0,
-            second: 0,
-            millisecond: 0,
-          });
-          const end = moment(start).add(1, 'days');
-
-          criteriaAnd.push({
-            $and: [
-              {
-                ['initialRentDate']: {
-                  $gte: start,
-                },
-              },
-              {
-                ['initialRentDate']: {
-                  $lt: end,
-                },
-              },
-            ],
-          });
-        }
       }
 
       if (filter.status) {
@@ -364,7 +300,7 @@ class TokenRepository {
           .skip(skip)
           .limit(limitEscaped)
           .sort(sort)
-          .populate('photographs'),
+          .populate('tokenImage'),
         options,
       );
 
@@ -464,9 +400,9 @@ class TokenRepository {
       return output;
     }
 
-    output.photographs =
+    output.tokenImage =
       await FileRepository.cleanupForRelationships(
-        output.photographs,
+        output.tokenImage,
         options,
       );
 

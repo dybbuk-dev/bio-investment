@@ -11,20 +11,12 @@ export default [
     label: i18n('token.fields.name'),
   },
   {
-    name: 'country',
-    label: i18n('token.fields.country'),
+    name: 'category',
+    label: i18n('token.fields.category'),
   },
   {
-    name: 'city',
-    label: i18n('token.fields.city'),
-  },
-  {
-    name: 'address',
-    label: i18n('token.fields.address'),
-  },
-  {
-    name: 'tokenName',
-    label: i18n('token.fields.tokenName'),
+    name: 'tokenPrice',
+    label: i18n('token.fields.tokenPrice'),
   },
   {
     name: 'status',

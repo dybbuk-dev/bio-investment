@@ -15,42 +15,18 @@ export default (database) => {
     {
       tokenNumber: { type: Number },
       name: { type: String, maxlength: 255 },
-      country: { type: String, maxlengh: 50 },
-      city: { type: String, maxlength: 50 },
-      tokenType: { type: String, maxlength: 50 },
-      address: { type: String, maxlength: 255 },
-      coordinates: [
-        {
-          type: Float6,
-        },
-      ],
-      tokenName: {
-        type: String,
-        maxlength: 50,
-      },
       description: {
         type: String,
       },
-      initialRentDate: {
-        type: Date,
-      },
-      durationProjectInMonth: {
-        type: Number,
-        min: 0,
-        max: 200,
-      },
       status: {
+        type: String,
+      },
+      category: {
         type: String,
       },
       tokenAddress: {
         type: String,
         maxlength: 50,
-      },
-      initialDateSTO: {
-        type: Date,
-      },
-      endDateSTO: {
-        type: Date,
       },
       suppliedTokensNumber: {
         type: Float2,
@@ -71,16 +47,14 @@ export default (database) => {
       hardcap: {
         type: Float2,
       },
-      photographs: [
-        {
-          type: Schema.Types.ObjectId,
-          ref: 'file',
-        },
-      ],
-      TIR: {
-        type: Float2,
+      tokenDuration: {
+        type: Number,
       },
-      accumulatedAndDistributedProfits: {
+      tokenImage: {
+        type: Schema.Types.ObjectId,
+        ref: 'file',
+      },
+      monthlyProfit: {
         type: Float2,
       },
       APY: {

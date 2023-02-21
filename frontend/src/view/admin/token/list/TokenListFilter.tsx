@@ -36,20 +36,10 @@ const schema = yup.object().shape({
   tokenNumber: yupFilterSchemas.integer(
     i18n('token.fields.tokenNumber'),
   ),
-  country: yupFilterSchemas.string(
-    i18n('token.fields.country'),
-  ),
-  city: yupFilterSchemas.string(i18n('token.fields.city')),
-  tokenType: yupFilterSchemas.string(
-    i18n('token.fields.tokenType'),
-  ),
-  tokenName: yupFilterSchemas.string(
-    i18n('token.fields.tokenName'),
+  category: yupFilterSchemas.string(
+    i18n('token.fields.category'),
   ),
   name: yupFilterSchemas.string(i18n('token.fields.name')),
-  initialRentDate: yupFilterSchemas.date(
-    i18n('token.fields.initialRentDate'),
-  ),
   status: yupFilterSchemas.string(
     i18n('token.fields.status'),
   ),
@@ -60,12 +50,8 @@ const schema = yup.object().shape({
 
 const emptyValues = {
   tokenNumber: '',
-  country: '',
-  city: '',
-  tokenType: '',
-  tokenName: '',
+  category: '',
   name: '',
-  initialRentDate: '',
   status: '',
   tokenAddress: '',
 };
@@ -75,31 +61,15 @@ const previewRenders = {
     label: i18n('token.fields.tokenNumber'),
     render: filterRenders.decimal(),
   },
-  country: {
-    label: i18n('token.fields.country'),
-    render: filterRenders.generic(),
-  },
-  city: {
-    label: i18n('token.fields.city'),
-    render: filterRenders.generic(),
-  },
-  tokenType: {
-    label: i18n('token.fields.tokenType'),
+  category: {
+    label: i18n('token.fields.category'),
     render: filterRenders.enumerator(
-      'token.fields.tokenType',
+      'token.fields.category',
     ),
-  },
-  tokenName: {
-    label: i18n('token.fields.tokenName'),
-    render: filterRenders.generic(),
   },
   name: {
     label: i18n('token.fields.name'),
     render: filterRenders.generic(),
-  },
-  initialRentDate: {
-    label: i18n('token.fields.initialRentDate'),
-    render: filterRenders.date(),
   },
   status: {
     label: i18n('token.fields.status'),
@@ -200,49 +170,15 @@ function TokenListFilter(props) {
                 </Grid>
                 <Grid item lg={4} md={6} xs={12}>
                   <SelectFormItem
-                    name="country"
-                    label={i18n('token.fields.country')}
-                    options={getNames().map((value) => ({
-                      value,
-                      label: value,
-                    }))}
-                    variant="standard"
-                  />
-                </Grid>
-                <Grid item lg={4} md={6} xs={12}>
-                  <InputFormItem
-                    name="city"
-                    label={i18n('token.fields.city')}
-                    variant="standard"
-                  />
-                </Grid>
-                <Grid item lg={4} md={6} xs={12}>
-                  <SelectFormItem
-                    name="tokenType"
-                    label={i18n('token.fields.tokenType')}
-                    options={tokenEnumerators.tokenType.map(
+                    name="category"
+                    label={i18n('token.fields.category')}
+                    options={tokenEnumerators.category.map(
                       (value) => ({
                         value,
                         label: i18n(
-                          `token.fields.tokenType.${value}`,
+                          `token.fields.category.${value}`,
                         ),
                       }),
-                    )}
-                    variant="standard"
-                  />
-                </Grid>
-                <Grid item lg={4} md={6} xs={12}>
-                  <InputFormItem
-                    name="tokenName"
-                    label={i18n('token.fields.tokenName')}
-                    variant="standard"
-                  />
-                </Grid>
-                <Grid item lg={4} md={6} xs={12}>
-                  <DatePickerFormItem
-                    name="initialRentDate"
-                    label={i18n(
-                      'token.fields.initialRentDate',
                     )}
                     variant="standard"
                   />

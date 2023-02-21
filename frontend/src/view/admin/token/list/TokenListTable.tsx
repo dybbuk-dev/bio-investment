@@ -146,14 +146,24 @@ function TokenListTable(props) {
                 {i18n('token.fields.name')}
               </DataTableHeadCell>
               <DataTableHeadCell
-                onClick={() => doChangeSort('tokenType')}
+                onClick={() => doChangeSort('category')}
                 sorted={
-                  sorter.field === 'tokenType'
+                  sorter.field === 'category'
                     ? sorter.order
                     : 'none'
                 }
               >
-                {i18n('token.fields.tokenType')}
+                {i18n('token.fields.category')}
+              </DataTableHeadCell>
+              <DataTableHeadCell
+                onClick={() => doChangeSort('tokenPrice')}
+                sorted={
+                  sorter.field === 'tokenPrice'
+                    ? sorter.order
+                    : 'none'
+                }
+              >
+                {i18n('token.fields.tokenPrice')}
               </DataTableHeadCell>
               <DataTableHeadCell
                 onClick={() => doChangeSort('status')}
@@ -164,29 +174,6 @@ function TokenListTable(props) {
                 }
               >
                 {i18n('token.fields.status')}
-              </DataTableHeadCell>
-              <DataTableHeadCell
-                onClick={() => doChangeSort('country')}
-                sorted={
-                  sorter.field === 'country'
-                    ? sorter.order
-                    : 'none'
-                }
-              >
-                {i18n('token.fields.country')}
-              </DataTableHeadCell>
-              <DataTableHeadCell
-                onClick={() => doChangeSort('city')}
-                sorted={
-                  sorter.field === 'city'
-                    ? sorter.order
-                    : 'none'
-                }
-              >
-                {i18n('token.fields.city')}
-              </DataTableHeadCell>
-              <DataTableHeadCell sorted={false}>
-                {i18n('token.fields.tokenName')}
               </DataTableHeadCell>
             </TableRow>
           </MDBox>
@@ -288,19 +275,13 @@ function TokenListTable(props) {
                     {row.name}
                   </DataTableBodyCell>
                   <DataTableBodyCell>
-                    {row.tokenType}
+                    {row.category}
+                  </DataTableBodyCell>
+                  <DataTableBodyCell>
+                    {row.tokenPrice}
                   </DataTableBodyCell>
                   <DataTableBodyCell>
                     {row.status}
-                  </DataTableBodyCell>
-                  <DataTableBodyCell>
-                    {row.country}
-                  </DataTableBodyCell>
-                  <DataTableBodyCell>
-                    {row.city}
-                  </DataTableBodyCell>
-                  <DataTableBodyCell>
-                    {row.tokenName}
                   </DataTableBodyCell>
                 </TableRow>
               ))}
